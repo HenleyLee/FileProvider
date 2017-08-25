@@ -49,21 +49,15 @@ FileProvider实际上是ContentProvider的一个子类，它的作用也比较�
     </paths>
 ```
 在paths节点内部支持以下几个子节点，分别为：
- - <root-path name="root" path="" />
-new File("/")：代表设备的根目录。
- - <files-path name="files" path="path" />
-Context.getFilesDir()：表示应用程序内部存储区域的文件子目录中的文件。
- - <cache-path name="cache" path="path" />
-Context.getCacheDir()：表示应用程序内部存储区域的缓存子目录中的文件。
- - <external-path name="external" path="path" />
-Environment.getExternalStorageDirectory()：表示外部存储区根目录中的文件。
- - <external-files-path name="external_files" path="path" />
-Context#getExternalFilesDir(String)：表示应用程序外部存储区域的文件子目录中的文件。
- - <external-cache-path name="external_cache" path="path" />
-Context#getExternalCacheDir()：表示应用程序外部存储区域的缓存子目录中的文件。
+ - <root-path name="root" path="" /> 表示设备的根目录，即 new File("/")
+ - <files-path name="files" path="path" /> 表示应用程序内部存储区域的文件子目录中的文件，即 Context.getFilesDir()
+ - <cache-path name="cache" path="path" /> 表示应用程序内部存储区域的缓存子目录中的文件，即 Context.getCacheDir()
+ - <external-path name="external" path="path" /> 表示外部存储区根目录中的文件，即 Environment.getExternalStorageDirectory()
+ - <external-files-path name="external_files" path="path" /> 表示应用程序外部存储区域的文件子目录中的文件，即 Context#getExternalFilesDir(String)
+ - <external-cache-path name="external_cache" path="path" /> 表示应用程序外部存储区域的缓存子目录中的文件，即 Context#getExternalCacheDir()
 每个节点都支持两个属性：
-    name：URI路径段。为了加强安全性，这个值隐藏了共享的子目录的名称。此值代表的子目录名称包含在路径属性中。
-    path：共享的实际子目录名称。值得注意的是，该值指的是子目录，而不是文件。不能共享一个文件的文件名，也可以指定使用通配符的文件子集。
+ - name：URI路径段。为了加强安全性，这个值隐藏了共享的子目录的名称。此值代表的子目录名称包含在路径属性中。
+ - path：共享的实际子目录名称。值得注意的是，该值指的是子目录，而不是文件。不能共享一个文件的文件名，也可以指定使用通配符的文件子集。
 当这么声明以后，代码可以使用你所声明的当前文件夹以及其子文件夹。
 
 ## 3.使用FileProvider API并进行授权： ##
