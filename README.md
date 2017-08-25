@@ -31,7 +31,7 @@ FileProvider实际上是ContentProvider的一个子类，它的作用也比较�
 * android:authorities --- 定义authority
 * android:exported="false" --- 对其它应用不可用
 * android:grantUriPermissions="true"  既然对其它应用不可用，只能授予content uri临时权限
-* <meta-data>中的android:name="android.support.FILE_PROVIDER_PATHS"(这个名子是固定的)和android:resource 指向一个xml文件，这个xml文件定义了要共享文件的路径
+* `<meta-data>`中的android:name="android.support.FILE_PROVIDER_PATHS"(这个名子是固定的)和android:resource 指向一个xml文件，这个xml文件定义了要共享文件的路径
 
 注意一点，他需要设置一个meta-data，里面指向一个xml文件。
 
@@ -48,7 +48,7 @@ FileProvider实际上是ContentProvider的一个子类，它的作用也比较�
     </paths>
 ```
 在paths节点内部支持以下几个子节点，分别为：
-* "<root-path name="root" path="" />" 表示设备的根目录，即 new File("/")
+* `<root-path name="root" path="" /\>` 表示设备的根目录，即 new File("/")
 * <files-path name="files" path="path" /> 表示应用程序内部存储区域的文件子目录中的文件，即 Context.getFilesDir()
 * <cache-path name="cache" path="path" /> 表示应用程序内部存储区域的缓存子目录中的文件，即 Context.getCacheDir()
 * <external-path name="external" path="path" /> 表示外部存储区根目录中的文件，即 Environment.getExternalStorageDirectory()
