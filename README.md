@@ -16,7 +16,7 @@ FileProvider实际上是ContentProvider的一个子类，它的作用也比较�
 
 #### 1.声明provider ####
 定义一个authorities，一般定义为“${applicationId}.fileprovider”
-```java
+```xml
     <provider
         android:name="android.support.v4.content.FileProvider"
         android:authorities="${applicationId}.fileprovider"
@@ -27,17 +27,16 @@ FileProvider实际上是ContentProvider的一个子类，它的作用也比较�
             android:resource="@xml/file_paths" />
     </provider>
 ```
- - android:name --- 定义FileProvider路径名称
- - android:authorities --- 定义authority
- - android:exported="false" --- 对其它应用不可用
- - android:grantUriPermissions="true"  既然对其它应用不可用，只能授予content uri临时权限
- - <meta-data>中的 android:name="android.support.FILE_PROVIDER_PATHS" （这个名子是固定的）和
-                            android:resource 指向一个xml文件，这个xml文件定义了要共享文件的路径
+* android:name --- 定义FileProvider路径名称
+* android:authorities --- 定义authority
+* android:exported="false" --- 对其它应用不可用
+* android:grantUriPermissions="true"  既然对其它应用不可用，只能授予content uri临时权限
+* <meta-data>中的android:name="android.support.FILE_PROVIDER_PATHS"(这个名子是固定的)和android:resource 指向一个xml文件，这个xml文件定义了要共享文件的路径
 
 注意一点，他需要设置一个meta-data，里面指向一个xml文件。
 
 #### 2.在res目录下新建目录xml，在xml目录下新建file_paths.xml文件： ####
-```java
+```xml
     <?xml version="1.0" encoding="utf-8"?>
     <paths xmlns:android="http://schemas.android.com/apk/res/android">
         <root-path name="root" path="" />
@@ -49,7 +48,7 @@ FileProvider实际上是ContentProvider的一个子类，它的作用也比较�
     </paths>
 ```
 在paths节点内部支持以下几个子节点，分别为：
-* <root-path name="root" path="" /> 表示设备的根目录，即 new File("/")
+* "<root-path name="root" path="" />" 表示设备的根目录，即 new File("/")
 * <files-path name="files" path="path" /> 表示应用程序内部存储区域的文件子目录中的文件，即 Context.getFilesDir()
 * <cache-path name="cache" path="path" /> 表示应用程序内部存储区域的缓存子目录中的文件，即 Context.getCacheDir()
 * <external-path name="external" path="path" /> 表示外部存储区根目录中的文件，即 Environment.getExternalStorageDirectory()
@@ -57,8 +56,8 @@ FileProvider实际上是ContentProvider的一个子类，它的作用也比较�
 * <external-cache-path name="external_cache" path="path" /> 表示应用程序外部存储区域的缓存子目录中的文件，即 Context#getExternalCacheDir()
 
 每个节点都支持两个属性：
- - name：URI路径段。为了加强安全性，这个值隐藏了共享的子目录的名称。此值代表的子目录名称包含在路径属性中。
- - path：共享的实际子目录名称。值得注意的是，该值指的是子目录，而不是文件。不能共享一个文件的文件名，也可以指定使用通配符的文件子集。
+* name：URI路径段。为了加强安全性，这个值隐藏了共享的子目录的名称。此值代表的子目录名称包含在路径属性中。
+* path：共享的实际子目录名称。值得注意的是，该值指的是子目录，而不是文件。不能共享一个文件的文件名，也可以指定使用通配符的文件子集。
 当这么声明以后，代码可以使用你所声明的当前文件夹以及其子文件夹。
 
 ## 3.使用FileProvider API并进行授权： ##
