@@ -1,4 +1,4 @@
-package com.liyunlong.fileprovider;
+package com.henley.fileprovider;
 
 import android.content.Context;
 import android.content.Intent;
@@ -17,7 +17,7 @@ import java.util.List;
 /**
  * Android5辅助类(根据图片资源给View设置背景颜色、给View设置形状、创建圆形缩放动画)
  *
- * @author liyunlong
+ * @author Henley
  * @date 2017/8/1 10:28
  */
 public class Android7Helper {

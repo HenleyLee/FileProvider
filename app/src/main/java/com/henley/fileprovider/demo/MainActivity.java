@@ -1,4 +1,4 @@
-package com.liyunlong.fileprovider.demo;
+package com.henley.fileprovider.demo;
 
 import android.Manifest;
 import android.content.Intent;
@@ -17,8 +17,8 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.liyunlong.fileprovider.Android7Helper;
-import com.liyunlong.fileprovider.ImageUriHelper;
+import com.henley.fileprovider.Android7Helper;
+import com.henley.fileprovider.ImageUriHelper;
 
 import java.io.File;
 import java.text.SimpleDateFormat;

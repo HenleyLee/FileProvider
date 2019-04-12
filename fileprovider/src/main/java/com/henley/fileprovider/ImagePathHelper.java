@@ -1,4 +1,4 @@
-package com.liyunlong.fileprovider;
+package com.henley.fileprovider;
 
 import android.annotation.TargetApi;
 import android.content.ContentUris;
@@ -11,7 +11,7 @@ import android.provider.DocumentsContract;
 import android.provider.MediaStore;
 
 /**
- * @author liyunlong
+ * @author Henley
  * @date 2017/8/1 11:24
  */
 public class ImagePathHelper {

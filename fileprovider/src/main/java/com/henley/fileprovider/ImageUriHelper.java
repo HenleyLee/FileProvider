@@ -1,4 +1,4 @@
-package com.liyunlong.fileprovider;
+package com.henley.fileprovider;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -12,7 +12,7 @@ import android.util.Log;
 /**
  * 图片URI处理辅助类
  *
- * @author liyunlong
+ * @author Henley
  * @date 2017/8/1 13:55
  */
 public class ImageUriHelper {
