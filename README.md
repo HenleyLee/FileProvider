@@ -1,17 +1,17 @@
-# FileProvider-master —— Android 7.0 FileProvider适配
+# FileProvider —— Android 7.0 FileProvider 适配
 
-## 1.介绍 ##
-对于Android 7.0，提供了非常多的变化，详细的可以阅读官方文档Android 7.0 行为变更，记得当时做了多窗口支持、FileProvider以及7.1的3D Touch的支持，不过和我们开发者关联最大的，或者说必须要适配的就是去除项目中传递file://类似格式的uri了。
-在官方7.0的以上的系统中，尝试传递 file://URI可能会触发FileUriExposedException。
-对于面向 Android 7.0 的应用，Android 框架执行的 StrictMode API 政策禁止在您的应用外部公开 file:// URI。如果一项包含文件 URI 的 intent 离开您的应用，则应用出现故障，并出现 FileUriExposedException 异常。
-要在应用间共享文件，您应发送一项 content:// URI，并授予 URI 临时访问权限。进行此授权的最简单方式是使用 FileProvider 类。如需了解有关权限和共享文件的详细信息，请参阅共享文件。
-https://developer.android.com/about/versions/nougat/android-7.0-changes.html#accessibility
-那么下面就看看如何通过FileProvider解决此问题吧。
+## 介绍 ##
+对于 Android 7.0，提供了非常多的变化，详细的可以阅读官方文档 Android 7.0 行为变更，记得当时做了多窗口支持、FileProvider 以及 7.1 的 3D Touch 的支持，不过和我们开发者关联最大的，或者说必须要适配的就是去除项目中传递 `file://` 类似格式的 URI 了。
+在官方 7.0 的以上的系统中，尝试传递 `file://` URI 可能会触发 `FileUriExposedException`。
+对于面向 Android 7.0 的应用，Android 框架执行的 StrictMode API 政策禁止在您的应用外部公开 `file://` URI。如果一项包含文件 URI 的 intent 离开您的应用，则应用出现故障，并出现 `FileUriExposedException` 异常。
+要在应用间共享文件，您应发送一项 content:// URI，并授予 URI 临时访问权限。进行此授权的最简单方式是使用 FileProvider 类。如需了解有关权限和共享文件的详细信息，请参阅共享文件 [https://developer.android.com/about/versions/nougat/android-7.0-changes.html#accessibility](https://developer.android.com/about/versions/nougat/android-7.0-changes.html#accessibility)。
 
-## 2.使用FileProvider的步骤： ##
-其实对于如何使用FileProvider，其实在FileProvider的API页面也有详细的步骤，有兴趣的可以看下。
-    https://developer.android.com/reference/android/support/v4/content/FileProvider.html
-FileProvider实际上是ContentProvider的一个子类，它的作用也比较明显了，file:///Uri不给用，那么换个Uri为content://来替代。
+那么下面就看看如何通过 FileProvider 解决此问题吧。
+
+## 使用 FileProvider 的步骤： ##
+其实对于如何使用 `FileProvider`，其实在 FileProvider 的 API 页面也有详细的步骤，有兴趣的可以看下 [https://developer.android.com/reference/android/support/v4/content/FileProvider.html](https://developer.android.com/reference/android/support/v4/content/FileProvider.html)。
+
+`FileProvider` 实际上是 `ContentProvider` 的一个子类，它的作用也比较明显了，`file:///Uri` 不给用，那么换个 Uri 为 `content://` 来替代。
 下面我们看下整体的实现步骤，并考虑为什么需要怎么做？
 
 #### 1.声明provider ####
@@ -72,3 +72,8 @@ FileProvider实际上是ContentProvider的一个子类，它的作用也比较�
         fileUri = Uri.fromFile(file);
     }
 ```
+
+## APK Demo ##
+
+下载 [APK-Demo](https://github.com/HenleyLee/FileProvider/raw/master/app/app-release.apk)
+
