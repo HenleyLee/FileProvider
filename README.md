@@ -74,7 +74,15 @@
     }
 ```
 
-## APK Demo ##
+## 4. Download ##
+### Gradle ###
+```gradle
+dependencies {
+    implementation 'com.henley.fileprovider:fileprovider:1.0.0'
+}
+```
+
+### APK Demo ###
 
 下载 [APK-Demo](https://github.com/HenleyLee/FileProvider/raw/master/app/app-release.apk)
 
