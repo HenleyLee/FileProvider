@@ -78,7 +78,7 @@
 ### Gradle ###
 ```gradle
 dependencies {
-    implementation 'com.henley.fileprovider:fileprovider:1.0.0'
+    implementation 'com.henley.android:fileprovider:1.0.0'
 }
 ```
 

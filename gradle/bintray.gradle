@@ -19,9 +19,10 @@ def siteUrl = 'https://github.com/HenleyLee/FileProvider'
 
 publish {
     userOrg = 'henleylee'
-    groupId = 'com.henley.fileprovider'
+    groupId = 'com.henley.android'
     artifactId = 'fileprovider'
     publishVersion = '1.0.0'
-    desc = 'Android 7.0 FileProvider 适配.'
+    uploadName = 'FileProvider'
+    desc = 'Android 7.0 FileProvider 适配。'
     website = siteUrl
 }
